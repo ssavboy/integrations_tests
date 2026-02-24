@@ -1,0 +1,31 @@
+stages:
+  - tests
+  - backup
+
+tests-runner:
+  stage: tests
+  tags:
+    - python
+  script:
+    - pip install -q -r requirements.txt
+    - pytest -v --durations=30 tests/ --tb=short
+
+backup-to-github:
+  stage: backup
+  needs: ["tests-runner"]
+  image: alpine:latest
+  before_script:
+    - apk add --no-cache git
+  script:
+    - mkdir /tmp/clean-repo
+    - cp -R . /tmp/clean-repo
+    - cd /tmp/clean-repo
+    - rm -rf .git
+    - git init
+    - git config user.name "ci-bot"
+    - git config user.email "ci-bot@example.com"
+    - git add .
+    - git commit -m "CI backup $CI_COMMIT_SHA"
+    - git branch -M main
+    - git remote add github "https://${GITHUB_USERNAME}:${GITHUB_TOKEN}@github.com/${GITHUB_USERNAME}/${GITHUB_REPO}.git"
+    - git push github main:main --force

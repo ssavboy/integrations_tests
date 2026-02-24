@@ -1,0 +1,19 @@
+[tool.black]
+line-length = 88
+skip-string-normalization = false
+include = '\.pyi?$'
+exclude = '''
+^(
+    \.git
+  | \.venv
+  | \.gitignore
+  | READMY.md
+)/
+'''
+
+[tool.isort]
+profile = "black"
+skip_gitignore = true
+line_length = 88
+sections = ["FUTURE", "STDLIB", "THIRDPARTY", "FIRSTPARTY", "LOCALFOLDER"]
+known_first_party = ["auth", "fixtures", "parametrs", "tickets", "users", "utils", "conftest", "settings"]
