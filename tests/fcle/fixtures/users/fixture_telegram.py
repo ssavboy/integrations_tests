@@ -64,7 +64,7 @@ def telegram_cases():
     return {
         "valid_user": (
             {
-                "telegramId": 1,
+                "telegramId": "_________",
                 "username": generate_nickname(),
                 "firstName": "Test",
                 "lastName": "User",
@@ -76,7 +76,7 @@ def telegram_cases():
         ),
         "minimal_data": (
             {
-                "telegramId": 987654321,
+                "telegramId": "_________",
                 "username": generate_nickname(),
                 "telegramAccount": "@minimal_account",
             },

@@ -52,15 +52,4 @@ ENDPOINTS["upload-additional-document"] = (
 
 # NEW TeacherEducations
 ENDPOINTS["teacher_educations"] = "TeacherEducations"
-
 # END TeacherEducations
-
-# Accounting
-ENDPOINTS.setdefault("accounting", "Accounting")
-ENDPOINTS["accounting_deposit"] = f"{ENDPOINTS['accounting']}/deposit"
-ENDPOINTS["accounting_buy_package"] = f"{ENDPOINTS['accounting']}/buy-package"
-ENDPOINTS["accounting_user_account_transactions"] = f"{ENDPOINTS['accounting']}/user-account-transactions"
-ENDPOINTS["accounting_user_account_transactions"] = f"{ENDPOINTS['accounting']}/user-account-transactions"
-ENDPOINTS["accounting_user_account_balance"] = f"{ENDPOINTS['accounting']}/user-account-balance"
-ENDPOINTS["accounting_terminate_package"] = f"{ENDPOINTS['accounting']}/terminate-package"
-
